@@ -18,7 +18,7 @@ public class dll extends node {
 	public void display() {
 		node x=head;
 		while(x!=null) {
-			System.out.println(x.prev+" "+x.key+" "+x.next+" "+x);
+			System.out.print(x.key+" ");
 			x=x.next;
 		}
 	}
@@ -30,6 +30,20 @@ public class dll extends node {
 		}
 		x.prev.next=x.next;
 	}
+	
+	public void search(int num) {
+		node x=head;
+		int pos=1;
+		for(int i=0;;i++) {
+			if(x.key != num) {
+			    x=x.next;
+			    pos+=1;}
+			else {
+				break;
+			}
+		}
+		System.out.println("Key present at position:"+pos);
+	}
 
 	public static void main(String[] args) {
 		dll ob=new dll();
@@ -39,6 +53,7 @@ public class dll extends node {
 			System.out.println("Enter 1 to insert");
 			System.out.println("Enter 2 to delete");
 			System.out.println("Enter 3 to display");
+			System.out.println("Enter 4 to search");
 			System.out.println("Enter 0 to quit");
 	        System.out.println("Enter your choice:");
 			Scanner sc=new Scanner(System.in);
@@ -61,6 +76,10 @@ public class dll extends node {
 				ob.display();
 				System.out.println();
 				break;
+			case 4:
+				System.out.println("Enter a key to search");
+				key=sc.nextInt();
+				ob.search(key);
 			default:
 				System.out.println("Enter a valid number");
                 break;
