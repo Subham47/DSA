@@ -28,21 +28,32 @@ public class dll extends node {
 		for(int i=0;i<n-1;i++) {
 			x=x.next;
 		}
-		x.prev.next=x.next;
+		//if(x.prev != null)
+		    x.prev.next=x.next;
+		//else
+		//	x.next.prev=null;
 	}
 	
 	public void search(int num) {
 		node x=head;
-		int pos=1;
+		int pos=1,flag=0;
 		for(int i=0;;i++) {
-			if(x.key != num) {
-			    x=x.next;
-			    pos+=1;}
+			if(x != null) {
+				if(x.key != num) {
+				    x=x.next;
+				    pos+=1;}
+				else {
+					break;
+				}
+				}
 			else {
+				System.out.println("Value not in list");
+				flag=1;
 				break;
 			}
 		}
-		System.out.println("Key present at position:"+pos);
+		if(flag==0) {
+		System.out.println("Key present at position:"+pos);}
 	}
 
 	public static void main(String[] args) {
@@ -80,6 +91,7 @@ public class dll extends node {
 				System.out.println("Enter a key to search");
 				key=sc.nextInt();
 				ob.search(key);
+				break;
 			default:
 				System.out.println("Enter a valid number");
                 break;

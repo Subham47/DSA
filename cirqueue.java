@@ -46,7 +46,7 @@ public class cirqueue {
 				System.out.println("Enter a number to insert:");
 				int n=sc.nextInt();
 				if (Q.tail+1==Q.head||(Q.tail==Q.arr.length-1&&Q.head==0)) {
-					System.out.println("Stack Overflow "+Q.tail+" "+Q.head);
+					System.out.println("Overflow "+Q.tail+" "+Q.head);
 				}
 				else if(Q.head==-1&&Q.tail==-1) {
 					Q.head=0;Q.tail=0;
@@ -65,7 +65,7 @@ public class cirqueue {
 				System.out.println(Q.tail+" "+Q.head);
 				Q.delete(Q.head);
 				if (Q.head!=-1&&Q.tail!=-1&&Q.head==Q.tail) {
-					System.out.println("Stack Underflows");
+					System.out.println("Underflows");
 				}
 				else if(Q.head==Q.arr.length-1) {
 					Q.head=0;
